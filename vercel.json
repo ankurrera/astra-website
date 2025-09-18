@@ -1,0 +1,39 @@
+{
+  "routes": [
+    {
+      "src": "^/astralab\\.framer\\.website/(.*)$",
+      "dest": "/astralab.framer.website/$1"
+    },
+    {
+      "src": "^/(app\\.framerstatic\\.com|framerusercontent\\.com|framer\\.com|events\\.framer\\.com|api\\.framer\\.com|_DataURI)/(.*)$",
+      "dest": "/$1/$2"
+    },
+    {
+      "src": "^/(.*)\\.(js|mjs|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|mp4|webm|map)$",
+      "dest": "/$1.$2"
+    },
+    {
+      "src": "^/.*$",
+      "dest": "/astralab.framer.website/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    }
+  ]
+}
