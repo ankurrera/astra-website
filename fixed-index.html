@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astralab Website (Fixed)</title>
+    <!-- Load our comprehensive fix script first -->
+    <script src="/selector-fix.js"></script>
+    <!-- Prevent 404 errors for missing resources -->
+    <script>
+        // Handle missing resources
+        window.addEventListener('error', function(e) {
+            if (e.target.tagName === 'SCRIPT' || e.target.tagName === 'LINK' || e.target.tagName === 'IMG') {
+                console.log('Prevented error for resource:', e.target.src || e.target.href);
+                e.preventDefault();
+                e.stopPropagation();
+                return true;
+            }
+        }, true);
+    </script>
+</head>
+<body>
+    <!-- Load the original page in an iframe with error handling -->
+    <iframe id="content-frame" src="/astralab.framer.website/index.html" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; border: none;"></iframe>
+    <script>
+        // Apply fixes to iframe content when it loads
+        document.getElementById('content-frame').onload = function() {
+            try {
+                // Inject our fix script into the iframe
+                const iframe = document.getElementById('content-frame');
+                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                const script = iframeDoc.createElement('script');
+                script.textContent = document.querySelector('script[src="/selector-fix.js"]').textContent;
+                iframeDoc.head.appendChild(script);
+                console.log('Fix script injected into iframe');
+            } catch (e) {
+                console.error('Error injecting fix script:', e);
+            }
+        };
+    </script>
+</body>
+</html>
