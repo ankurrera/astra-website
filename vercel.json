@@ -8,6 +8,10 @@
     {
       "src": "^/(.*)\\.(js|mjs|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|mp4|webm|map)$",
       "dest": "/$1.$2"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ],
   "headers": [
@@ -17,10 +21,6 @@
         {
           "key": "X-Content-Type-Options",
           "value": "nosniff"
-        },
-        {
-          "key": "X-Frame-Options",
-          "value": "DENY"
         },
         {
           "key": "X-XSS-Protection",
