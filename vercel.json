@@ -1,33 +1,33 @@
 {
   "version": 2,
-  "routes": [
+  "rewrites": [
     {
-      "src": "/framerusercontent.com/(.*)",
-      "dest": "/framerusercontent.com/$1"
+      "source": "/framerusercontent.com/(.*)",
+      "destination": "/framerusercontent.com/$1"
     },
     {
-      "src": "/api.framer.com/(.*)",
-      "dest": "/api.framer.com/$1"
+      "source": "/api.framer.com/(.*)",
+      "destination": "/api.framer.com/$1"
     },
     {
-      "src": "/app.framerstatic.com/(.*)",
-      "dest": "/app.framerstatic.com/$1"
+      "source": "/app.framerstatic.com/(.*)",
+      "destination": "/app.framerstatic.com/$1"
     },
     {
-      "src": "/framer.com/(.*)",
-      "dest": "/framer.com/$1"
+      "source": "/framer.com/(.*)",
+      "destination": "/framer.com/$1"
     },
     {
-      "src": "/events.framer.com/(.*)",
-      "dest": "/events.framer.com/$1"
+      "source": "/events.framer.com/(.*)",
+      "destination": "/events.framer.com/$1"
     },
     {
-      "src": "/_DataURI/(.*)",
-      "dest": "/_DataURI/$1"
+      "source": "/_DataURI/(.*)",
+      "destination": "/_DataURI/$1"
     },
     {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ],
   "headers": [
