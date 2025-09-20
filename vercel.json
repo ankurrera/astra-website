@@ -2,12 +2,28 @@
   "version": 2,
   "routes": [
     {
-      "src": "^/(app\\.framerstatic\\.com|framerusercontent\\.com|framer\\.com|events\\.framer\\.com|api\\.framer\\.com|_DataURI)/(.*)$",
-      "dest": "/$1/$2"
+      "src": "/framerusercontent.com/(.*)",
+      "dest": "/framerusercontent.com/$1"
     },
     {
-      "src": "^/(.*)\\.(js|mjs|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|mp4|webm|map)$",
-      "dest": "/$1.$2"
+      "src": "/api.framer.com/(.*)",
+      "dest": "/api.framer.com/$1"
+    },
+    {
+      "src": "/app.framerstatic.com/(.*)",
+      "dest": "/app.framerstatic.com/$1"
+    },
+    {
+      "src": "/framer.com/(.*)",
+      "dest": "/framer.com/$1"
+    },
+    {
+      "src": "/events.framer.com/(.*)",
+      "dest": "/events.framer.com/$1"
+    },
+    {
+      "src": "/_DataURI/(.*)",
+      "dest": "/_DataURI/$1"
     },
     {
       "src": "/(.*)",
@@ -16,15 +32,29 @@
   ],
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "**/*.{js,mjs}",
       "headers": [
         {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
+          "key": "Content-Type",
+          "value": "application/javascript; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "**/*.css",
+      "headers": [
         {
-          "key": "X-XSS-Protection",
-          "value": "1; mode=block"
+          "key": "Content-Type",
+          "value": "text/css; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "**/*.html",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/html; charset=utf-8"
         }
       ]
     }
